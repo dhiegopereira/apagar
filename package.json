@@ -1,0 +1,18 @@
+{
+  "name": "will-code-for-food",
+  "version": "1.0.0",
+  "description": "Desafio Final: Sistema PDV - Vendas",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon .src/index.js"
+  },
+  "keywords": [],
+  "author": "Equipe: Gabriel Tavares Gonçalves, Deivison Daniel dos Santos Andrade, Macielli Maciel, Rodrigo Daniel, Victor Allisson Silva Medeiros",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
