@@ -29,11 +29,10 @@ const autenticaUsuario = async(req,res,next)=>{
         next();
 
     } catch (error) {
-        if(error.message === 'invalid token'){
+        if(error.message === 'invalid signature' || error.message === 'invalid token' ){
             return res.status(401).json({mensagem:'Para acessar este recurso um token de autenticação válido deve ser enviado.'});
         }
-        // return res.status(500).json({mensagem:'Erro interno do servidor'})
-        console.log(error);
+        return res.status(500).json({mensagem:'Erro interno do servidor'})
     }
 }
 module.exports={
