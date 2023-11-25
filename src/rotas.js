@@ -11,7 +11,4 @@ rotas.get('/categoria', listarCategorias);
 rotas.post('/login', login);
 rotas.use(autenticaUsuario)
 
-rotas.get('/usuario', (req,res)=>{
-    res.send('testando autenticador')
-})
 module.exports = rotas;
