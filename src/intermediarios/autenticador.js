@@ -1,7 +1,6 @@
 const knex = require('../conexao');
 const {senhaJwt} = require('../../senhaJwt')
 const jwt = require('jsonwebtoken');
-const { config } = require('dotenv');
 
 const autenticaUsuario = async(req,res,next)=>{
     const {authorization} = req.headers;

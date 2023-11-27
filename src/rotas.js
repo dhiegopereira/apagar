@@ -1,7 +1,7 @@
 const express = require('express');
 const { listarCategorias } = require('./controladores/listarcategorias');
 const { autenticaUsuario } = require('./intermediarios/autenticador');
-const { login } = require('./controladores/usuarios');
+const { login } = require('./controladores/login');
 const { cadastrarUsuario } = require('./controladores/cadastrarUsuario');
 
 
