@@ -1,7 +1,7 @@
-const knex = require('../conexao');
-const bcrypt = require('bcrypt')
+const knex = require('../conexao')
 const {senhaJwt} = require('../../senhaJwt')
 const jwt = require('jsonwebtoken')
+const{verificarSenha} = require('../intermediarios/bcrypt')
 
 const login = async (req,res)=>{
     const {email, senha} = req.body;
@@ -16,9 +16,9 @@ const login = async (req,res)=>{
         return res.status(400).json({mensagem:'Usuario ou senha incorretos.'})
     }
 
-    const confirmaSenha = await bcrypt.compare(senha, usuario[0].senha);
+    const autorizado = await verificarSenha(senha, usuario[0].senha);
     
-    if(!confirmaSenha){
+    if(!autorizado){
         return res.status(400).json({mensagem:'Usuario ou senha incorretos.'})
     }
 
