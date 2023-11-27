@@ -9,7 +9,7 @@ const cadastrarUsuario = async (req, res) => {
     }
 
     try {
-        const emailCadastrado = await knex('usuarios').where('email', email)
+        const emailCadastrado = await knex('usuarios').where({ email }).first()
 
         if(emailCadastrado){
             return res.status(400).json({ mensagem: 'Email já cadastrado' })
@@ -18,12 +18,12 @@ const cadastrarUsuario = async (req, res) => {
         const usuario = {
             nome,
             email,
-            senha: criptografarSenha(senha)
+            senha: await criptografarSenha(senha)
         }
 
-        const novoUsuario = await knex('usuarios').insert(usuario).returning(['nome'])
+        await knex('usuarios').insert(usuario)
 
-        return res.status(200).json(novoUsuario)
+        return res.status(201).send()
     } 
     catch (error) {
         return res.status(500).json({ mensagem: 'Erro interno do servidor' })
