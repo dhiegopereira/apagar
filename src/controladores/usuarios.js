@@ -7,7 +7,6 @@ const detalharPerfil = async (req, res) => {
 
 const editarUsuario = async (req, res) => {
   const { nome, email, senha } = req.body;
-
   const { id } = req.usuario[0];
 
   if (!nome && !email && !senha) {
@@ -16,6 +15,7 @@ const editarUsuario = async (req, res) => {
         "Pelo menos um campo precisa ser fornecido para editar o perfil do usuario",
     });
   }
+
   try {
     if (email !== req.usuario.email) {
       const emailUsuarioExiste = await knex("usuarios")
@@ -40,9 +40,9 @@ const editarUsuario = async (req, res) => {
     return res.status(201).send();
   } catch (error) {
     res.status(500).json({ mensagem: "Erro interno do servidor" });
-    console.log(error.message);
   }
 };
+
 module.exports = {
   detalharPerfil,
   editarUsuario,
