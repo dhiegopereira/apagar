@@ -2,7 +2,7 @@
   "name": "will-code-for-food",
   "version": "1.0.0",
   "description": "Desafio Final: Sistema PDV - Vendas",
-  "main": "./src/index.js",
+  "main": "index.js",
   "scripts": {
     "start": "node ./src/index.js"
   },
